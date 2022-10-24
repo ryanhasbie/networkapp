@@ -10,7 +10,7 @@
                         <form action="{{route('status.store')}}" method="post">
                             @csrf
                             <div class="flex">
-                                <div class="flex-shrink-0 mr-3"><img class="w-10 h-10 rounded-full" src="https://i.pravatar.cc/150" alt="{{Auth::user()->name}}"></div>
+                                <div class="flex-shrink-0 mr-3"><img class="w-10 h-10 rounded-full" src="{{Auth::user()->gravatar()}}" alt="{{Auth::user()->name}}"></div>
                                 <div class="w-full">
                                     <div class="font-semibold">{{Auth::user()->name}}</div>
                                     <div class="my-2">
@@ -32,7 +32,7 @@
                         @foreach ($statuses as $status)
                         <x-card>
                             <div class="flex">
-                                <div class="flex-shrink-0 mr-3"><img class="w-10 h-10 rounded-full" src="https://i.pravatar.cc/150" alt="{{$status->user->name}}"></div>
+                                <div class="flex-shrink-0 mr-3"><img class="w-10 h-10 rounded-full" src="{{Auth::user()->gravatar()}}" alt="{{$status->user->name}}"></div>
                                 <div>
                                     <div class="font-semibold">{{$status->user->name}}</div>
                                     <div class="leading-relaxed">{{$status->body}}</div>
@@ -50,7 +50,7 @@
                         <div class="space-y-5">
                             @foreach (Auth::user()->follows()->limit(5)->get() as $user)
                             <div class="flex items-center">
-                                <div class="flex-shrink-0 mr-3"><img class="w-10 h-10 rounded-full" src="https://i.pravatar.cc/150" alt="{{$status->user->name}}"></div>
+                                <div class="flex-shrink-0 mr-3"><img class="w-10 h-10 rounded-full" src="{{Auth::user()->gravatar()}}" alt="{{$status->user->name}}"></div>
                                 <div>
                                     <div class="font-semibold">{{$user->name}}</div>
                                     <div class="text-sm text-gray-600">{{$user->pivot->created_at->diffForHumans()}}</div>

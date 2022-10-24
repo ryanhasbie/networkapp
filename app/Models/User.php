@@ -49,6 +49,12 @@ class User extends Authenticatable
         return Status::whereIn('user_id', $following)->orWhere('user_id', $this->id)->latest()->get();
     }
 
+    public function gravatar()
+    {
+        $default = 'mm';
+        return "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ) . "?d=" . urlencode( $default );
+    }
+
     public function makeStatus($string)
     {
         $this->statuses()->create([
