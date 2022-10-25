@@ -29,18 +29,7 @@
                 {{-- End Form --}}
                 <div class="space-y-6 mt-5">
                     <div class="space-y-5">
-                        @foreach ($statuses as $status)
-                        <x-card>
-                            <div class="flex">
-                                <div class="flex-shrink-0 mr-3"><img class="w-10 h-10 rounded-full" src="{{Auth::user()->gravatar()}}" alt="{{$status->user->name}}"></div>
-                                <div>
-                                    <div class="font-semibold">{{$status->user->name}}</div>
-                                    <div class="leading-relaxed">{{$status->body}}</div>
-                                    <div class="text-sm text-gray-600">{{$status->created_at->diffForHumans()}}</div>
-                                </div>
-                            </div>
-                        </x-card>
-                        @endforeach
+                        <x-statuses :statuses="$statuses"></x-statuses>
                     </div>
                 </div>
             </div>
@@ -48,15 +37,13 @@
                 <x-card>
                     <h1 class="font-semibold mb-5">Recently Follows</h1>
                         <div class="space-y-5">
-                            @foreach (Auth::user()->follows()->limit(5)->get() as $user)
                             <div class="flex items-center">
-                                <div class="flex-shrink-0 mr-3"><img class="w-10 h-10 rounded-full" src="{{Auth::user()->gravatar()}}" alt="{{$status->user->name}}"></div>
+                                <div class="flex-shrink-0 mr-3"><img class="w-10 h-10 rounded-full" src="{{$user->gravatar()}}" alt="{{$user->name}}"></div>
                                 <div>
                                     <div class="font-semibold">{{$user->name}}</div>
                                     <div class="text-sm text-gray-600">{{$user->pivot->created_at->diffForHumans()}}</div>
                                 </div>
                             </div>
-                            @endforeach
                         </div>
                 </x-card>
             </div>
