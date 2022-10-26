@@ -34,6 +34,7 @@
                 </div>
             </div>
             <div class="col-span-4">
+                @if (Auth::user()->follows()->count())
                 <x-card>
                     <h1 class="font-semibold mb-5">Recently Follows</h1>
                         <div class="space-y-5">
@@ -42,6 +43,7 @@
                             </div>
                         </div>
                 </x-card>
+                @endif
             </div>
         </div>
     </x-container>

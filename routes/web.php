@@ -6,6 +6,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\FollowingController;
 use App\Http\Controllers\ExploreUserController;
+use App\Http\Controllers\UpdatePasswordController;
 use App\Http\Controllers\ProfileInformationController;
 use App\Http\Controllers\UpdateProfileInformationController;
 
@@ -33,6 +34,9 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/edit', [UpdateProfileInformationController::class, 'edit'])->name('edit');
     Route::put('/update', [UpdateProfileInformationController::class, 'update'])->name('update');
+
+    Route::get('/password/edit', [UpdatePasswordController::class, 'edit'])->name('edit.password');
+    Route::put('/password/update', [UpdatePasswordController::class, 'update'])->name('update.password');
     
 });
 

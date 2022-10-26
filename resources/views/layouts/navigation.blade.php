@@ -41,6 +41,12 @@
                             <x-dropdown-link href="{{route('profile', Auth::user()->username)}}">
                                 Profile
                             </x-dropdown-link>
+                            <x-dropdown-link href="{{route('edit')}}">
+                                Edit Profile
+                            </x-dropdown-link>
+                            <x-dropdown-link href="{{route('edit.password')}}">
+                                Change Password
+                            </x-dropdown-link>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
