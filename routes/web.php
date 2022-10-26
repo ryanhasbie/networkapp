@@ -7,6 +7,7 @@ use App\Http\Controllers\TimelineController;
 use App\Http\Controllers\FollowingController;
 use App\Http\Controllers\ExploreUserController;
 use App\Http\Controllers\ProfileInformationController;
+use App\Http\Controllers\UpdateProfileInformationController;
 
 
 Route::get('/', WelcomeController::class);
@@ -29,6 +30,9 @@ Route::middleware('auth')->group(function() {
     Route::post('/following/{user}', [FollowingController::class, 'store'])->name('following.store');
 
     Route::get('/explore', ExploreUserController::class)->name('users.index');
+
+    Route::get('/edit', [UpdateProfileInformationController::class, 'edit'])->name('edit');
+    Route::put('/update', [UpdateProfileInformationController::class, 'update'])->name('update');
     
 });
 

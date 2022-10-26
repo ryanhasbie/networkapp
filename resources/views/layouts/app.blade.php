@@ -17,6 +17,13 @@
         <div class="min-h-screen bg-white">
             @include('layouts.navigation')
 
+            @if (session()->has('message'))
+                <div class="bg-green-400 text-white p-2">
+                    <x-container>
+                        {{session()->get('message')}}
+                    </x-container>
+                </div>
+            @endif
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white border-b border-gray-300">
