@@ -16,22 +16,7 @@
         </div>
 
         <div class="border-b mb-5">
-            <x-container>
-                <div class="flex">
-                    <div class="px-10 py-3 text-center border-r border-l">
-                        <div class="text-2xl font-semibold mb-2">{{$user->statuses->count()}}</div>
-                        <div class="uppercase text-xs text-gray-600">Status</div>
-                    </div>
-                    <div class="px-10 py-3 text-center border-r">
-                        <div class="text-2xl font-semibold mb-2">{{$user->follows->count()}}</div>
-                        <div class="uppercase text-xs text-gray-600">Following</div>
-                    </div>
-                    <div class="px-10 py-3 text-center border-r">
-                        <div class="text-2xl font-semibold mb-2">{{$user->followers->count()}}</div>
-                        <div class="uppercase text-xs text-gray-600">Follower</div>
-                    </div>
-                </div>
-            </x-container>
+            <x-statistic :user="$user"></x-statistic>
         </div>
 
         <x-container>
