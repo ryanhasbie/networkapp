@@ -37,7 +37,7 @@
                 <x-card>
                     <h1 class="font-semibold mb-5">Recently Follows</h1>
                         <div class="space-y-5">
-                            <div class="flex items-center">
+                            <div class="">
                                 <x-following :users="Auth::user()->follows()->get()"></x-following>
                             </div>
                         </div>

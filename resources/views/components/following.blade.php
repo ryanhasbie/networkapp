@@ -1,5 +1,6 @@
 @foreach ($users as $user)
 <x-card>
+    <div class="flex">
     <div class="flex-shrink-0 mr-3"><img class="w-10 h-10 rounded-full" src="{{$user->gravatar()}}" alt="{{$user->name}}"></div>
     <div>
         <div>
@@ -17,11 +18,12 @@
                 </x-primary-button>
             </form>
         </div>
-        <div class="text-sm text-gray-600">
+        <div class="text-sm text-gray-600 mt-2">
             @if ($user->pivot)
             {{$user->pivot->created_at->diffForHumans()}}
             @endif
         </div>
+    </div>
     </div>
 </x-card>
 @endforeach
