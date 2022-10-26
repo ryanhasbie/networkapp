@@ -23,7 +23,9 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/profile/{user}', ProfileInformationController::class)->name('profile')->withoutMiddleware('auth');
 
-    Route::get('/profile/{user}/{following}', FollowingController::class)->name('profile.following');
+    Route::get('/profile/{user}/{following}', [FollowingController::class, 'index'])->name('following.index');
+    Route::post('/following/{user}', [FollowingController::class, 'store'])->name('following.store');
+
     
 });
 
